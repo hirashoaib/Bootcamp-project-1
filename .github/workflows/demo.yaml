@@ -16,6 +16,6 @@ jobs:
         with:
           node-version: '12'
       - name: Setup Surge
-        run: npm install --globalsurge     
+        run: npm install --global surge     
       - name: Executive Deployment with Surge
         run: surge ./ hirakhan_bootcamp_project1.surge.sh --token ${{secrets.PROJECT1_SURGE_TOKEN}}
