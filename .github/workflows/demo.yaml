@@ -1,0 +1,24 @@
+---
+name: Deploy Website with Surge
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Job_Deploy_Surge
+    runs-on: Ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setupnode
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - name: Setup Surge
+      - run: npm install --globalsurge     
+      - name: Executive Deployment with Surge
+        run: surge ./ hirakhan_bootcamp_project1.surge.sh --token ${{secrets.PROJECT1_SURGE_TOKEN}}
+        
+...        
